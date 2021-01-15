@@ -99,15 +99,23 @@ const App = () => {
               <h1 className="text-success text-uppercase text-center">
                 {winMessage}
               </h1>
-              <Button color="success" block onClick={reloadGame}>
-                Reload the game
-              </Button>
             </div>
           ) : (
             <h1 className="text-center text-warning">
               {isCross ? "cross" : "circle"} turns
             </h1>
           )}
+          {winMessage ? (
+            <Button color="primary" block onClick={reloadGame}>
+              Play again
+            </Button>
+          ) : (
+            <Button color="success" block onClick={reloadGame}>
+              Reload the game
+            </Button>
+          )}
+
+          <br />
           <div className="grid">
             {itemArray.map((item, index) => (
               <Card color="warning" onClick={() => changeItem(index)}>
